@@ -41,13 +41,6 @@ nav a.active::after, nav a:hover::after { transform:scaleX(1); }
   animation:zoomIn 1s ease forwards; 
 }
 
-/* RESPONSIVE ADJUSTMENTS */
-@media(max-width:992px){
-  .hero-image img{ width:200px; height:200px; }
-}
-@media(max-width:600px){
-  .hero-image img{ width:2000px; height:250px; }
-}
 
 
 /* ===== SECTIONS ===== */
@@ -283,6 +276,7 @@ window.addEventListener("scroll",()=>{
   sections.forEach(section=>{
     const sectionTop=section.offsetTop-100;
     if(scrollY>=sectionTop) current=
+
 
 
 
