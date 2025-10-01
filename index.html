@@ -44,7 +44,7 @@ section h2 { font-size:2rem; margin-bottom:30px; color:#222; }
 .progress-bar { background:#eee; border-radius:20px; overflow:hidden; height:16px; }
 .progress { height:100%; background:linear-gradient(90deg,#7b2cbf,#9d4edd); width:var(--progress,70%); border-radius:20px; color:#fff; font-size:.75rem; display:flex; justify-content:flex-end; padding-right:5px; }
 
-/* ===== TIMELINE ===== */
+/* ===== TIMELINE (Education) ===== */
 .timeline { position:relative; max-width:900px; margin:auto; padding:0 0 30px; }
 .timeline::before { content:""; position:absolute; left:50%; top:0; width:4px; height:100%; background:#7b2cbf; transform:translateX(-50%); }
 .timeline-item { width:45%; padding:20px; background:#fff; border-radius:10px; box-shadow:0 6px 16px rgba(0,0,0,0.12); position:relative; margin:30px 0; text-align:left; }
@@ -53,8 +53,9 @@ section h2 { font-size:2rem; margin-bottom:30px; color:#222; }
 .timeline-item::before { content:""; position:absolute; top:20px; width:15px; height:15px; background:#7b2cbf; border-radius:50%; box-shadow:0 0 0 4px #e9d8fd; }
 .timeline-item:nth-child(odd)::before { right:-32px; }
 .timeline-item:nth-child(even)::before { left:-32px; }
+.timeline-item .time-badge { position:absolute; top:-12px; right:20px; background:#7b2cbf; color:#fff; font-size:.75rem; padding:3px 8px; border-radius:12px; }
 
-/* ===== CARDS ===== */
+/* ===== CARDS (Projects, Achievements, Interns) ===== */
 .card { background:#fff; border-radius:10px; padding:20px; margin:15px auto; max-width:600px; box-shadow:0 6px 14px rgba(0,0,0,0.1); text-align:left; }
 .card a { display:inline-block; margin-top:8px; padding:7px 12px; background:#7b2cbf; color:#fff; border-radius:6px; text-decoration:none; font-size:.85rem; transition:.3s; }
 .card a:hover { background:#5a189a; }
@@ -77,6 +78,7 @@ footer { background:#7b2cbf; color:#fff; text-align:center; padding:20px; }
   .hero{flex-direction:column-reverse;text-align:center;}
   .timeline-item, .timeline-item:nth-child(even), .timeline-item:nth-child(odd) { width:100%; left:0 !important; margin-left:20px; }
   .timeline-item::before { left:-28px !important; }
+  .timeline-item .time-badge { right:10px; }
 }
 </style>
 </head>
@@ -99,7 +101,7 @@ footer { background:#7b2cbf; color:#fff; text-align:center; padding:20px; }
 <!-- HERO -->
 <section class="hero">
   <div class="hero-text">
-    <h1>Hello, I'm Fowziya</h1>
+    <h1>Shaik  Fowziya</h1>
     <h2>Java & Frontend Developer</h2>
     <p>Designs robust, scalable applications using Java, Spring, HTML/CSS/JS and modern frameworks.</p>
     <div class="hero-buttons">
@@ -138,19 +140,19 @@ footer { background:#7b2cbf; color:#fff; text-align:center; padding:20px; }
   <h2>Education</h2>
   <div class="timeline">
     <div class="timeline-item">
+      <span class="time-badge">Jul 2025 – Present</span>
       <h3>Shree Venkateshwaras College Of Engineering & Technology</h3>
-      <p>B.Tech, Computer Science and Engineering</p>
-      <p>Jul 2025 – Present | CGPA: 85.3 | Nellore, AP</p>
+      <p>B.Tech, Computer Science and Engineering | CGPA: 85.3 | Nellore, AP</p>
     </div>
     <div class="timeline-item">
+      <span class="time-badge">2020 – 2022</span>
       <h3>Narayana Junior College</h3>
-      <p>Intermediate Education, M.P.C</p>
-      <p>2020 – 2022 | Grade: 96% | Nellore, AP</p>
+      <p>Intermediate Education, M.P.C | Grade: 96% | Nellore, AP</p>
     </div>
     <div class="timeline-item">
+      <span class="time-badge">2020</span>
       <h3>Vikas English Medium School</h3>
-      <p>High School, Xth Standard</p>
-      <p>2020 | Grade: 93% | Nellore, AP</p>
+      <p>High School, Xth Standard | Grade: 93% | Nellore, AP</p>
     </div>
   </div>
 </section>
@@ -183,25 +185,20 @@ footer { background:#7b2cbf; color:#fff; text-align:center; padding:20px; }
 <!-- INTERNSHIPS -->
 <section id="internships">
   <h2>Internships</h2>
-  <div class="timeline">
-    <div class="timeline-item">
-      <h3>Data Science with Python - Quizaro</h3>
-      <p>Sep–Nov 2023 | Remote</p>
-      <p>Leveraged Python libraries to analyze data and build models.</p>
-      <a href="pintern1.pdf" target="_blank">Certificate</a>
-    </div>
-    <div class="timeline-item">
-      <h3>Java Developer Intern - Octanet</h3>
-      <p>Jul–Sep 2024 | Remote</p>
-      <p>Developed software solutions using Java.</p>
-      <a href="javaintern.pdf" target="_blank">Certificate</a>
-    </div>
-    <div class="timeline-item">
-      <h3>AI Intern - Techsaksham/edunet</h3>
-      <p>Dec 2024–Feb 2025 | Remote</p>
-      <p>Created ML model to predict spam emails using scikit-learn.</p>
-      <a href="edu.jpg" target="_blank">Certificate</a>
-    </div>
+  <div class="card">
+    <h3>Data Science with Python - Quizaro</h3>
+    <p>Remote | Leveraged Python libraries to analyze data and build models.</p>
+    <a href="pintern1.pdf" target="_blank">View Certificate</a>
+  </div>
+  <div class="card">
+    <h3>Java Developer Intern - Octanet</h3>
+    <p>Remote | Developed software solutions using Java.</p>
+    <a href="javaintern.pdf" target="_blank">View Certificate</a>
+  </div>
+  <div class="card">
+    <h3>AI Intern - Techsaksham/edunet</h3>
+    <p>Remote | Created ML model to predict spam emails using scikit-learn.</p>
+    <a href="edu.jpg" target="_blank">View Certificate</a>
   </div>
 </section>
 
@@ -245,7 +242,7 @@ footer { background:#7b2cbf; color:#fff; text-align:center; padding:20px; }
 
 <!-- FOOTER -->
 <footer>
-  © 2025 Fowziya Shaik. All rights reserved.
+  © 2025  Shaik Fowziya . All rights reserved.
 </footer>
 
 <!-- ACTIVE NAV SCRIPT -->
