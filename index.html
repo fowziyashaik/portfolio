@@ -1,324 +1,287 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Shaik Fowziya -  Portfolio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-  <link href="index.css" rel="stylesheet">
-  
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio - Fowziya Shaik</title>
+  <style>
+    /* ===== GLOBAL RESET ===== */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Poppins', sans-serif;
+      line-height: 1.6;
+      background: linear-gradient(135deg, #f3e8ff, #ffffff);
+      color: #333;
+      overflow-x: hidden;
+    }
 
+    /* ===== HEADER ===== */
+    header {
+      position: fixed; top: 0; width: 100%;
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 12px 8%; background: rgba(255,255,255,0.95);
+      box-shadow: 0 3px 10px rgba(0,0,0,0.1); z-index: 1000;
+    }
+    .logo { font-size: 22px; font-weight: 600; color: #7b2cbf; }
+    nav a {
+      text-decoration: none; color: #333; font-weight: 500; margin: 0 12px;
+      position: relative; transition: color 0.3s;
+    }
+    nav a:hover { color: #7b2cbf; }
+    nav a::after {
+      content: ""; position: absolute; left: 0; bottom: -3px;
+      width: 100%; height: 2px; background: #7b2cbf;
+      transform: scaleX(0); transition: transform 0.3s;
+    }
+    nav a:hover::after { transform: scaleX(1); }
+
+    /* ===== HERO ===== */
+    .hero {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 100px 8% 50px; flex-wrap: wrap;
+    }
+    .hero-text { flex: 1; }
+    .hero-text h1 { font-size: 2.5rem; margin-bottom: 10px; color: #222; }
+    .hero-text h2 { font-size: 1.5rem; margin-bottom: 15px; color: #7b2cbf; }
+    .hero-text p { color: #555; margin-bottom: 20px; max-width: 500px; }
+    .hero-image img {
+      width: 180px; height: 180px; object-fit: cover;
+      border-radius: 50%; border: 5px solid #7b2cbf;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+      animation: zoomIn 1s ease forwards;
+    }
+    .hero-buttons { display: flex; gap: 12px; flex-wrap: wrap; }
+    .btn {
+      border: none; padding: 10px 18px; border-radius: 25px;
+      cursor: pointer; font-size: 0.9rem; transition: 0.3s;
+      background: #7b2cbf; color: #fff; text-decoration: none;
+    }
+    .btn:hover { background: #5a189a; transform: translateY(-3px); }
+
+    /* ===== SECTIONS ===== */
+    section { padding: 70px 8%; text-align: center; }
+    section h2 { font-size: 2rem; margin-bottom: 40px; color: #222; }
+
+    /* ===== ABOUT ===== */
+    .about-card {
+      max-width: 600px; margin: auto; background: #fff;
+      padding: 25px; border-radius: 12px;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.12);
+      text-align: left; position: relative;
+    }
+    .about-card::before {
+      content: ""; position: absolute; top: 0; left: 0;
+      width: 100%; height: 5px;
+      background: linear-gradient(90deg,#7b2cbf,#9d4edd,#c77dff);
+    }
+
+    /* ===== SKILLS ===== */
+    .skill { margin-bottom: 15px; text-align: left; }
+    .skill-name { margin-bottom: 5px; font-weight: 600; color: #7b2cbf; }
+    .progress-bar {
+      background: #eee; border-radius: 20px; overflow: hidden;
+      height: 18px;
+    }
+    .progress {
+      height: 100%; background: linear-gradient(90deg,#7b2cbf,#9d4edd);
+      width: var(--progress, 70%); border-radius: 20px;
+      color: #fff; font-size: 0.75rem; display: flex; justify-content: flex-end;
+      padding-right: 5px;
+    }
+
+    /* ===== EDUCATION ===== */
+    #education { position: relative; padding: 50px 8%; }
+    #education::before {
+      content: ""; position: absolute; left: 50%; top: 0;
+      width: 4px; height: 100%; background: #7b2cbf;
+      transform: translateX(-50%);
+    }
+    .timeline-item {
+      width: 45%; padding: 20px; background: #fff;
+      border-radius: 10px; box-shadow: 0 6px 16px rgba(0,0,0,0.12);
+      position: relative; margin: 30px 0;
+    }
+    .timeline-item:nth-child(odd) { left: 0; }
+    .timeline-item:nth-child(even) { left: 55%; }
+    .timeline-item::before {
+      content: ""; position: absolute; top: 20px;
+      width: 15px; height: 15px; background: #7b2cbf;
+      border-radius: 50%; box-shadow: 0 0 0 4px #e9d8fd;
+    }
+    .timeline-item:nth-child(odd)::before { right: -32px; }
+    .timeline-item:nth-child(even)::before { left: -32px; }
+
+    /* ===== CARDS ===== */
+    .project-card, .internship, .certificate-card {
+      background: #fff; border-radius: 10px; padding: 20px;
+      box-shadow: 0 6px 14px rgba(0,0,0,0.1);
+      text-align: left; margin: 20px auto; max-width: 600px;
+    }
+    .project-card a, .certificate-card a {
+      display: inline-block; margin-top: 8px; padding: 8px 14px;
+      background: #7b2cbf; color: #fff; border-radius: 6px;
+      text-decoration: none; font-size: 0.85rem; transition: 0.3s;
+    }
+    .project-card a:hover, .certificate-card a:hover { background: #5a189a; }
+
+    /* ===== CONTACT ===== */
+    .contact-container {
+      max-width: 500px; margin: auto; background: #fff;
+      padding: 30px; border-radius: 15px;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.12);
+    }
+    .contact-container input, .contact-container textarea {
+      width: 100%; padding: 12px; margin-bottom: 12px;
+      border: 1px solid #ddd; border-radius: 8px;
+    }
+    .contact-container button {
+      width: 100%; background: linear-gradient(90deg,#7b2cbf,#9d4edd);
+      border-radius: 25px; color: #fff; padding: 12px;
+      font-size: 1rem; cursor: pointer; transition: 0.3s;
+    }
+
+    /* ===== SOCIAL LINKS ===== */
+    .social-links { margin-top: 15px; }
+    .social-links a {
+      display: inline-block; margin: 8px;
+      color: #7b2cbf; font-weight: 500; text-decoration: none;
+      transition: transform 0.3s, color 0.3s;
+    }
+    .social-links a:hover { transform: translateY(-3px) scale(1.1);
+      color: #5a189a; }
+
+    /* ===== FOOTER ===== */
+    footer { background: #7b2cbf; color: #fff; text-align: center; padding: 20px; }
+
+    /* ===== ANIMATIONS ===== */
+    @keyframes zoomIn { 0% {opacity:0; transform:scale(0.8);} 100% {opacity:1; transform:scale(1);} }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 900px) {
+      .hero { flex-direction: column-reverse; text-align: center; }
+      #education::before { left: 8px; }
+      .timeline-item { width: 100%; left: 0 !important; margin-left: 20px; }
+      .timeline-item::before { left: -28px !important; }
+    }
+  </style>
 </head>
 <body>
 
+  <!-- ===== HEADER ===== -->
   <header>
-    <div class="logo">Fowziya.</div>
-    
+    <div class="logo">My Portfolio</div>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#education">Education</a>
+      <a href="#projects">Projects</a>
+      <a href="#internships">Internships</a>
+      <a href="#achievements">Achievements</a>
+      <a href="#contact">Contact</a>
+    </nav>
   </header>
-  <div class="card-container">
-   <div class="certificate-card0">
-  <section class="hero">
-   
 
-  
-   
+  <!-- ===== HERO ===== -->
+  <section class="hero" id="home">
     <div class="hero-text">
-       
-      <h1>Welcome to my Portfolio</h1>
-      <h2>Hi! I am Shaik Fowziya</h2>
-      <h3>Passionate java Developer</h3>
-
-      <p>Designs robust, scalable Java applications using Spring &amp; Hibernate.
-     Transforms complex business requirements into clean, maintainable code.</p><br>
- <div class="hero-buttons">
-
- 
-        <a href="./resume 4-1.pdf" class="btn-secondary">View my Resume</a>
-      
+      <h1>Hello, I'm Fowziya</h1>
+      <h2>Frontend Developer</h2>
+      <p>Passionate about crafting clean and interactive web experiences.</p>
+      <div class="hero-buttons">
+        <a href="resume.pdf" class="btn" target="_blank">Download Resume</a>
+        <a href="https://github.com/fowziyashaik" class="btn" target="_blank">GitHub</a>
+        <a href="https://linkedin.com/in/fowziyashaik" class="btn" target="_blank">LinkedIn</a>
+      </div>
     </div>
-</div>
     <div class="hero-image">
-      <img src="./profilepic.jpg">
-     
+      <img src="https://via.placeholder.com/180" alt="Profile Picture">
     </div>
-    </div>
-   </div>
   </section>
 
-  <section class="about-section" id="about">
-   <div class="card-container">
-   <div class="certificate-card1">
+  <!-- ===== ABOUT ===== -->
+  <section id="about">
     <h2>About Me</h2>
-    <p><strong>Java Developer:</strong> Designs and builds secure, scalable Java applications using Spring, Hibernate, and OOP principles. .</p>
-  
-  <p><strong>Front‑End Developer:</strong> Crafts responsive, accessible user interfaces with HTML, CSS, and JavaScript frameworks like React or Vue. </p>
-    </div>
+    <div class="about-card">
+      <p>I am a frontend developer with a focus on creating responsive and user-friendly web applications. Skilled in HTML, CSS, JavaScript, and modern frameworks, I aim to deliver engaging digital experiences.</p>
     </div>
   </section>
 
+  <!-- ===== SKILLS ===== -->
+  <section id="skills">
+    <h2>Skills</h2>
+    <div class="skill">
+      <div class="skill-name">HTML</div>
+      <div class="progress-bar"><div class="progress" style="--progress:90%;">90%</div></div>
+    </div>
+    <div class="skill">
+      <div class="skill-name">CSS</div>
+      <div class="progress-bar"><div class="progress" style="--progress:85%;">85%</div></div>
+    </div>
+    <div class="skill">
+      <div class="skill-name">JavaScript</div>
+      <div class="progress-bar"><div class="progress" style="--progress:75%;">75%</div></div>
+    </div>
+  </section>
+
+  <!-- ===== EDUCATION ===== -->
   <section id="education">
     <h2>Education</h2>
-    <div class="timeline-item">
-      <h3>Shree Venkateshwaras College Of Engineering & Technology</h3>
-      <div class="date">Jul 2025 – Present</div>
-      <p>B.Tech, Computer Science and Engineering</p>
-      <p class="grade">CGPA: 85.3/10</p>
-      <p class="location">North Rajupalem, Nellore, Andhra Pradesh</p>
-    </div>
+    <div class="timeline-item"><h3>Bachelor's in CS</h3><p>XYZ University (2020-2024)</p></div>
+    <div class="timeline-item"><h3>High School</h3><p>ABC School (2018-2020)</p></div>
+  </section>
 
-    <div class="timeline-item">
-      <h3>Narayana Junior College</h3>
-      <div class="date">2020 – 2022</div>
-      <p>Intermediate Education, M.P.C</p>
-      <p class="grade">Grade: 96%</p>
-      <p class="location">Harnathpuram, Nellore, Andhra Pradesh</p>
-    </div>
-
-    <div class="timeline-item">
-      <h3>Vikas English Medium School</h3>
-      <div class="date">2020</div>
-      <p>High School, Xth Standard</p>
-      <p class="grade">Grade: 93%</p>
-      <p class="location">Nellore, Andhra Pradesh</p>
+  <!-- ===== PROJECTS ===== -->
+  <section id="projects">
+    <h2>Projects</h2>
+    <div class="project-card">
+      <h3>E-commerce Website</h3>
+      <p>Developed a full-featured frontend for online shopping.</p>
+      <a href="https://fowziyashaik.github.io/ecommerce/" target="_blank">Live Demo</a>
+      <a href="https://github.com/fowziyashaik/ecommerce" target="_blank">Source Code</a>
     </div>
   </section>
 
-
-  <section id="skills">
-     <div class="card-container">
-   <div class="certificate-card2">
-
-    <h2>Skills Overview</h2>
-    <div class="skill"><div class="skill-name">java</div><div class="progress-bar"><div class="progress" style="--progress: 90%;"><span class="percentage">90%</span></div></div></div>
-    <div class="skill"><div class="skill-name">html&css</div><div class="progress-bar"><div class="progress" style="--progress: 85%;"><span class="percentage">85%</span></div></div></div>
-     <div class="skill"><div class="skill-name">JavaScript</div><div class="progress-bar"><div class="progress" style="--progress: 85%;"><span class="percentage">85%</span></div></div></div>
-     <div class="skill"><div class="skill-name">AdvanceJava</div><div class="progress-bar"><div class="progress" style="--progress: 85%;"><span class="percentage">75%</span></div></div></div>
-    <div class="skill"><div class="skill-name">SQL</div><div class="progress-bar"><div class="progress" style="--progress: 75%;"><span class="percentage">75%</span></div></div></div>
-    <div class="skill"><div class="skill-name">python</div><div class="progress-bar"><div class="progress" style="--progress: 65%;"><span class="percentage">65%</span></div></div></div>
-    <div class="skill"><div class="skill-name">Machine Learning</div><div class="progress-bar"><div class="progress" style="--progress: 60%;"><span class="percentage">60%</span></div></div></div>
-    </div>
+  <!-- ===== INTERNSHIPS ===== -->
+  <section id="internships">
+    <h2>Internships</h2>
+    <div class="internship">
+      <h3>Web Developer Intern</h3>
+      <p>Worked on UI improvements and responsive design at TechCorp.</p>
     </div>
   </section>
-   
 
-
-    <section id="Projects">
-      
-        <h2 > Project Highlights</h2>
-        <div class="card-container">
-            <div class="project-card">
-                <h2>Number Guessing Game</h2>
-                <p><strong>Technology:</strong> HTML & CSS</p>
-                <p>A simple number guessing game where users try to guess a randomly generated number. Provides feedback after each guess.</p>
-               
-                <a href=" https://fowziyashaik.github.io/Game.github.io/" class="certificate-btn" target="_blank">
-                    <i class="fas fa-link"></i> View 
-                </a>
-            </div>
-
-            <div class="project-card">
-                <h2>SMS Spam Detection</h2>
-                <p><strong>Technology:</strong> Python (Scikit-learn, NLTK)</p>
-                <p>Built a spam filter using machine learning techniques that can classify messages as spam or not spam.</p>
-                
-                    
-                
-                <a href="https://github.com/fowziyashaik/Spam.github.io" class="certificate-btn" target="_blank">
-                    <i class="fas fa-link"></i> View 
-                </a>
-            </div>
-              <div class="project-card">
-                <h2>E-commerce</h2>
-                <p><strong>Technology:</strong> Front‑End(html,css,js)</p>
-                <p>Designed a responsive e‑commerce interface featuring dynamic filtering, cart functionality, and secure checkout.</p>
-                
-                   
-                <a href="https://fowziyashaik.github.io/ecommerce/" class="certificate-btn" target="_blank">
-                    <i class="fas fa-link"></i> View 
-                </a>
-            </div>
-            <div class="project-card">
-                <h2>Library Management System</h2>
-                <p><strong>Technology:</strong> Core Java/p>
-                <p>Built a menu-driven system in Java to manage book issuing, returns, members, and inventory.</p>
-                
-                
-                <a href="https://github.com/fowziyashaik/librarymanagementsystem" class="certificate-btn" target="_blank">
-                    <i class="fas fa-link"></i> View 
-                </a>
-            </div>
-               
-               
-               
-
-
-
-            
-            
-        
-        
-            
-    </section>
-
-    <section id="Certificates">
-        <h2 > Certificates</h2>
-        <div class="card-container">
-            <div class="certificate-card">
-                <h3>Web Development</h3>
-                <p>Completed HTML & CSS</p>
-                <a href="./web.pdf" target="_blank" class="view-btn"><i class="fas fa-file-pdf"></i> View Certificate</a>
-            </div>
-
-            
-
-            <div class="certificate-card">
-                <h3>java </h3>
-                <p>Completed the java course </p>
-                <a href="./java.pdf" target="_blank" class="view-btn"><i class="fas fa-file-pdf"></i> View Certificate</a>
-            </div>
-
-            <div class="certificate-card">
-                <h3>Data analytics</h3>
-                <p>Gain hands-on experience in data analysis, visualization, and insights generation</p>
-                <a href="./data.pdf" target="_blank" class="view-btn"><i class="fas fa-file-pdf"></i> View Certificate</a>
-            </div>
-
-            
-
-            <div class="certificate-card">
-                <h3>Cybersecurity Essentials</h3>
-                <p>Covered network security, risk management, and basic ethical hacking.</p>
-                <a href="./cyber.pdf" target="_blank" class="view-btn"><i class="fas fa-file-pdf"></i> View Certificate</a>
-            </div>
-        </div>
-    </section>
-<section  id="Interrships">
-            <h2 class="section-title" style="color:#8e2de2;">Completed Internships</h2>
-            <div class="internship-container">
-                <div class="internship completed">
-                    <i class="fas fa-check-circle status-icon" title="Completed"></i>
-                   
-                    <h2>Data Science with Python</h2>
-                    <p><strong>Company:</strong> Quizaro</p>
-                    <p><strong>Location:</strong> Remote</p>
-                    <p><strong>Description:</strong> Leveraging Python's powerful libraries and tools,(2023 SEP-NOV 2023).</p>
-                    <a href="./pintern1.pdf"  class="code-btn" target="_blank">
-                        <i class="fas fa-file-alt"></i> View Certificate			
-                    </a>
-                </div>
-
-                <div class="internship completed">
-                    <i class="fas fa-check-circle status-icon" title="Completed"></i>
-                    
-                    <h2>Java Developer Intern</h2>
-                    <p><strong>Company:</strong> Octanet </p>
-                    <p><strong>Location:</strong> Remote</p>
-                    <p><strong>Description:</strong> design, develop,  software solutions using  technologies, excellence.(2024 JUL-SEP 2024)"</p>
-                    <a href="./javaintern.pdf" class="code-btn" target="_blank">
-                        <i class="fas fa-file-alt"></i> View Certificate
-                    </a>
-                </div>
-
-                <div class="internship completed">
-                    <i class="fas fa-check-circle status-icon" title="Completed"></i>
-                    
-                    <h2>AI: Transformative Learning With Techsaksham Intern</h2>
-                    <p><strong>Company:</strong> edunet [a joint CSR initiative of Microsoft & SAP]</p>
-                    <p><strong>Location:</strong> Remote</p>
-                    <p><strong>Description:</strong> Created a machine learning model to predict email spam or ham using scikit-learn(2024 DEC-FEB 2025).</p>
-                    <a href="./edu.jpg" class="code-btn" target="_blank">
-                        <i class="fas fa-file-alt"></i> View Certificate
-                    </a>
-                </div>
-
-
-
-
-            </div>
-        </section>
-
-        <section id="Achievements">
-            <h2 class="section-title" style="color:#8e2de2;">Achievements & Participation</h2>
-            <div class="card-container">
-                <div class="certificate-card">
-                    <h3>Poster & Paper Presentations</h3>
-                    <p>Professional development, knowledge sharing, and networking, stay updated with industry trends.</p>
-                    <a href="./ppt.pdf" target="_blank" class="view-btn"><i class="fas fa-file-pdf"></i> View Details</a>
-                </div>
-
-                <div class="certificate-card">
-                    <h3>Elocution & Debugging Competitions</h3>
-                    <p>Enhancing communication and problem-solving skills,  interact, communicate, and collaborate.</p>
-                    <a href="./elo.pdf" target="_blank" class="view-btn"><i class="fas fa-file-pdf"></i> View Details</a>
-                </div>
-
-                <div class="certificate-card">
-                    <h3>Workshops Participation</h3>
-                    <p>Focused sessions for professional development, knowledge sharing, and networking.</p>
-                    <a href="./work.pdf" target="_blank" class="view-btn"><i class="fas fa-file-pdf"></i> View Details</a>
-                </div>
-
-                
-            </div>
-        </section>
+  <!-- ===== ACHIEVEMENTS ===== -->
+  <section id="achievements">
+    <h2>Achievements</h2>
+    <div class="certificate-card">
+      <h3>Certified Frontend Developer</h3>
+      <p>Completed professional certification in modern web development.</p>
+      <a href="certificate.pdf" target="_blank">View Certificate</a>
     </div>
-     <section id="Contact Me">
-     <div class="contact-container">
-    <h1>Contact Me</h1>
-    <form id="contactForm">
-      <input type="text" name="name" placeholder="Your Name" required />
-      <input type="email" name="email" placeholder="Your Email" required />
-      <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
-      <button type="submit">Send Message</button>
-    </form>
-    
-                    
-    <div class="social-links">
-      <a href="https://www.linkedin.com/in/fowziya-shaik-3b549b2b3/" target="_blank" rel="noopener noreferrer">
-        <i class="fab fa-linkedin"></i> LinkedIn
-      </a>
-      <a href="https://github.com/fowziyashaik" target="_blank" rel="noopener noreferrer">
-        <i class="fab fa-github"></i> GitHub
-      </a>
-      <a href="mailto:fowziyashaik7@gmail.com">
-  <i class="fab fa-email"></i> email
-  </a>
-
-    </div>
-  </div>
-   
   </section>
 
-  <script>
-    document.getElementById('contactForm').addEventListener('submit', function(e) {
-      e.preventDefault(); // prevent form submission
-      window.close(); // try to close window silently
-    });
-  </script>
+  <!-- ===== CONTACT ===== -->
+  <section id="contact">
+    <h2>Contact Me</h2>
+    <div class="contact-container">
+      <form>
+        <input type="text" placeholder="Your Name" required>
+        <input type="email" placeholder="Your Email" required>
+        <textarea placeholder="Your Message" rows="5" required></textarea>
+        <button type="submit">Send</button>
+      </form>
+      <div class="social-links">
+        <a href="mailto:fowziya@example.com">📧 Email</a>
+        <a href="https://linkedin.com/in/fowziyashaik" target="_blank">💼 LinkedIn</a>
+        <a href="https://github.com/fowziyashaik" target="_blank">💻 GitHub</a>
+      </div>
+    </div>
+  </section>
 
-  <!-- Font Awesome icons -->
-  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-
-    
+  <!-- ===== FOOTER ===== -->
   <footer>
-    &copy; 2025 Shaik Fowziya Portfolio. All rights reserved.
+    <p>© 2025 Fowziya Shaik. All Rights Reserved.</p>
   </footer>
-
-  <script>
-    // Navbar highlight
-    const navbar = document.getElementById('navbar');
-    const links = navbar.querySelectorAll('a');
-    links.forEach(link => {
-      link.addEventListener('click', function(e) {
-        links.forEach(l => l.classList.remove('active'));
-        this.classList.add('active');
-      });
-    });
-  </script>
 
 </body>
 </html>
-
-
-
-
