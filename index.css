@@ -37,11 +37,10 @@ nav a:hover::after { transform: scaleX(1); }
 .hero-text h1 { font-size: 2.5rem; margin-bottom: 10px; color: #222; }
 .hero-text h2 { font-size: 1.5rem; margin-bottom: 15px; color: #7b2cbf; }
 .hero-text p {
-  color: #555; margin-bottom: 20px;
-  max-width: 500px;
+  color: #555; margin-bottom: 20px; max-width: 500px;
 }
 .hero-image img {
-  width: 200px; height: 200px; object-fit: cover;
+  width: 180px; height: 180px; object-fit: cover;
   border-radius: 50%;
   border: 5px solid #7b2cbf;
   box-shadow: 0 10px 20px rgba(0,0,0,0.15);
@@ -61,20 +60,61 @@ button:hover {
 section { padding: 70px 8%; text-align: center; }
 section h2 { font-size: 2rem; margin-bottom: 40px; color: #222; }
 
-/* Cards (stacked vertically) */
-.card {
-  background: #fff; padding: 16px; border-radius: 12px;
+/* About Card */
+.about-card {
+  max-width: 600px;
+  margin: auto;
+  background: #fff;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.12);
+  text-align: left;
+}
+.about-card h2 { color: #7b2cbf; margin-bottom: 12px; }
+.about-card p { color: #555; font-size: 0.95rem; margin-bottom: 10px; }
+
+/* Project/Internship/Achievement Cards */
+.project-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+  margin-top: 30px;
+}
+.project-card {
+  background: #fff;
+  border-radius: 8px;
+  padding: 20px;
   box-shadow: 0 6px 14px rgba(0,0,0,0.1);
   transition: transform 0.3s, box-shadow 0.3s;
   text-align: left;
-  margin-bottom: 20px;
+  min-height: 180px;
 }
-.card:hover {
-  transform: translateY(-6px) scale(1.02);
-  box-shadow: 0 12px 25px rgba(0,0,0,0.18);
+.project-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 24px rgba(0,0,0,0.18);
 }
-.card h3 { font-size: 1.2rem; margin-bottom: 8px; color: #7b2cbf; }
-.card p { font-size: 0.9rem; color: #555; margin-bottom: 12px; }
+.project-card h2 {
+  font-size: 1.2rem;
+  margin-bottom: 8px;
+  color: #7b2cbf;
+}
+.project-card p {
+  font-size: 0.9rem;
+  color: #555;
+  margin-bottom: 10px;
+}
+.project-card a {
+  display: inline-block;
+  margin-top: 8px;
+  padding: 8px 14px;
+  background: #7b2cbf;
+  color: #fff;
+  border-radius: 6px;
+  text-decoration: none;
+  font-size: 0.85rem;
+  transition: 0.3s;
+}
+.project-card a:hover { background: #5a189a; }
 
 /* Contact */
 .contact-container {
