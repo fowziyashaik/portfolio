@@ -31,12 +31,13 @@ nav a.active::after, nav a:hover::after { transform:scaleX(1); }
 .btn:hover { background:#5a189a; transform:translateY(-3px); }
 /* ===== HERO IMAGE ===== */
 .hero-image img { 
-  width:250px;      /* increased width */
-  height:350px;     /* increased height */
-  object-fit:cover; 
+  width:20px;      /* increased width */
+  height:250px;     /* increased height */
+  object-fit:cover;
   border-radius:50%; 
-  
-  box-shadow:0 10px 20px rgba(0,0,0,0.15); 
+  display:block;
+  magrgin: 20px auto;
+  box-shadow:0 0 10px rgba(0,0,0,0.1); 
   animation:zoomIn 1s ease forwards; 
 }
 
@@ -45,7 +46,7 @@ nav a.active::after, nav a:hover::after { transform:scaleX(1); }
   .hero-image img{ width:200px; height:200px; }
 }
 @media(max-width:600px){
-  .hero-image img{ width:150px; height:250px; }
+  .hero-image img{ width:2000px; height:250px; }
 }
 
 
@@ -282,6 +283,7 @@ window.addEventListener("scroll",()=>{
   sections.forEach(section=>{
     const sectionTop=section.offsetTop-100;
     if(scrollY>=sectionTop) current=
+
 
 
 
