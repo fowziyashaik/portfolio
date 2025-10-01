@@ -1,287 +1,208 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Portfolio - Fowziya Shaik</title>
-  <style>
-    /* ===== GLOBAL RESET ===== */
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body {
-      font-family: 'Poppins', sans-serif;
-      line-height: 1.6;
-      background: linear-gradient(135deg, #f3e8ff, #ffffff);
-      color: #333;
-      overflow-x: hidden;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fowziya Shaik - Portfolio</title>
+<style>
+/* ===== GLOBAL RESET ===== */
+* { margin:0; padding:0; box-sizing:border-box; }
+body {
+  font-family:'Poppins',sans-serif;
+  background:linear-gradient(135deg,#f3e8ff,#ffffff);
+  color:#333; line-height:1.6;
+  scroll-behavior:smooth;
+}
 
-    /* ===== HEADER ===== */
-    header {
-      position: fixed; top: 0; width: 100%;
-      display: flex; justify-content: space-between; align-items: center;
-      padding: 12px 8%; background: rgba(255,255,255,0.95);
-      box-shadow: 0 3px 10px rgba(0,0,0,0.1); z-index: 1000;
-    }
-    .logo { font-size: 22px; font-weight: 600; color: #7b2cbf; }
-    nav a {
-      text-decoration: none; color: #333; font-weight: 500; margin: 0 12px;
-      position: relative; transition: color 0.3s;
-    }
-    nav a:hover { color: #7b2cbf; }
-    nav a::after {
-      content: ""; position: absolute; left: 0; bottom: -3px;
-      width: 100%; height: 2px; background: #7b2cbf;
-      transform: scaleX(0); transition: transform 0.3s;
-    }
-    nav a:hover::after { transform: scaleX(1); }
+/* ===== HEADER ===== */
+header {
+  position:fixed; top:0; width:100%;
+  display:flex; justify-content:space-between; align-items:center;
+  padding:12px 8%; background:#fff; box-shadow:0 3px 10px rgba(0,0,0,0.1); z-index:1000;
+}
+.logo { font-size:22px; font-weight:600; color:#7b2cbf; }
+nav a {
+  text-decoration:none; color:#333; margin:0 12px; font-weight:500; position:relative; transition:.3s;
+}
+nav a:hover { color:#7b2cbf; }
+nav a.active { color:#7b2cbf; font-weight:600; }
+nav a::after {
+  content:""; position:absolute; left:0; bottom:-3px; width:100%; height:2px;
+  background:#7b2cbf; transform:scaleX(0); transition:.3s;
+}
+nav a.active::after, nav a:hover::after { transform:scaleX(1); }
 
-    /* ===== HERO ===== */
-    .hero {
-      display: flex; align-items: center; justify-content: space-between;
-      padding: 100px 8% 50px; flex-wrap: wrap;
-    }
-    .hero-text { flex: 1; }
-    .hero-text h1 { font-size: 2.5rem; margin-bottom: 10px; color: #222; }
-    .hero-text h2 { font-size: 1.5rem; margin-bottom: 15px; color: #7b2cbf; }
-    .hero-text p { color: #555; margin-bottom: 20px; max-width: 500px; }
-    .hero-image img {
-      width: 180px; height: 180px; object-fit: cover;
-      border-radius: 50%; border: 5px solid #7b2cbf;
-      box-shadow: 0 10px 20px rgba(0,0,0,0.15);
-      animation: zoomIn 1s ease forwards;
-    }
-    .hero-buttons { display: flex; gap: 12px; flex-wrap: wrap; }
-    .btn {
-      border: none; padding: 10px 18px; border-radius: 25px;
-      cursor: pointer; font-size: 0.9rem; transition: 0.3s;
-      background: #7b2cbf; color: #fff; text-decoration: none;
-    }
-    .btn:hover { background: #5a189a; transform: translateY(-3px); }
+/* ===== HERO ===== */
+.hero {
+  display:flex; align-items:center; justify-content:space-between;
+  padding:100px 8% 50px; flex-wrap:wrap;
+}
+.hero-text { flex:1; }
+.hero-text h1 { font-size:2.5rem; margin-bottom:10px; color:#222; }
+.hero-text h2 { font-size:1.5rem; margin-bottom:15px; color:#7b2cbf; }
+.hero-text p { color:#555; margin-bottom:20px; max-width:500px; }
+.hero-buttons { display:flex; gap:12px; flex-wrap:wrap; }
+.btn {
+  padding:10px 18px; border-radius:25px; background:#7b2cbf; color:#fff; text-decoration:none;
+  font-size:.9rem; transition:.3s; display:inline-block;
+}
+.btn:hover { background:#5a189a; transform:translateY(-3px); }
+.hero-image img {
+  width:160px; height:160px; object-fit:cover; border-radius:50%;
+  border:4px solid #7b2cbf; box-shadow:0 10px 20px rgba(0,0,0,0.15);
+  animation:zoomIn 1s ease forwards;
+}
 
-    /* ===== SECTIONS ===== */
-    section { padding: 70px 8%; text-align: center; }
-    section h2 { font-size: 2rem; margin-bottom: 40px; color: #222; }
+/* ===== SECTIONS ===== */
+section { padding:70px 8%; text-align:center; }
+section h2 { font-size:2rem; margin-bottom:30px; color:#222; }
 
-    /* ===== ABOUT ===== */
-    .about-card {
-      max-width: 600px; margin: auto; background: #fff;
-      padding: 25px; border-radius: 12px;
-      box-shadow: 0 6px 16px rgba(0,0,0,0.12);
-      text-align: left; position: relative;
-    }
-    .about-card::before {
-      content: ""; position: absolute; top: 0; left: 0;
-      width: 100%; height: 5px;
-      background: linear-gradient(90deg,#7b2cbf,#9d4edd,#c77dff);
-    }
+/* ===== ABOUT ===== */
+.about-card {
+  max-width:600px; margin:auto; background:#fff; padding:20px; border-radius:12px;
+  box-shadow:0 6px 16px rgba(0,0,0,0.12); text-align:left;
+}
 
-    /* ===== SKILLS ===== */
-    .skill { margin-bottom: 15px; text-align: left; }
-    .skill-name { margin-bottom: 5px; font-weight: 600; color: #7b2cbf; }
-    .progress-bar {
-      background: #eee; border-radius: 20px; overflow: hidden;
-      height: 18px;
-    }
-    .progress {
-      height: 100%; background: linear-gradient(90deg,#7b2cbf,#9d4edd);
-      width: var(--progress, 70%); border-radius: 20px;
-      color: #fff; font-size: 0.75rem; display: flex; justify-content: flex-end;
-      padding-right: 5px;
-    }
+/* ===== SKILLS ===== */
+.skill { text-align:left; margin-bottom:15px; }
+.skill-name { margin-bottom:5px; font-weight:600; color:#7b2cbf; }
+.progress-bar { background:#eee; border-radius:20px; overflow:hidden; height:16px; }
+.progress {
+  height:100%; background:linear-gradient(90deg,#7b2cbf,#9d4edd);
+  width:var(--progress,70%); border-radius:20px; color:#fff;
+  font-size:.75rem; display:flex; justify-content:flex-end; padding-right:5px;
+}
 
-    /* ===== EDUCATION ===== */
-    #education { position: relative; padding: 50px 8%; }
-    #education::before {
-      content: ""; position: absolute; left: 50%; top: 0;
-      width: 4px; height: 100%; background: #7b2cbf;
-      transform: translateX(-50%);
-    }
-    .timeline-item {
-      width: 45%; padding: 20px; background: #fff;
-      border-radius: 10px; box-shadow: 0 6px 16px rgba(0,0,0,0.12);
-      position: relative; margin: 30px 0;
-    }
-    .timeline-item:nth-child(odd) { left: 0; }
-    .timeline-item:nth-child(even) { left: 55%; }
-    .timeline-item::before {
-      content: ""; position: absolute; top: 20px;
-      width: 15px; height: 15px; background: #7b2cbf;
-      border-radius: 50%; box-shadow: 0 0 0 4px #e9d8fd;
-    }
-    .timeline-item:nth-child(odd)::before { right: -32px; }
-    .timeline-item:nth-child(even)::before { left: -32px; }
+/* ===== TIMELINE ===== */
+.timeline {
+  position:relative; max-width:900px; margin:auto; padding:0 0 30px;
+}
+.timeline::before {
+  content:""; position:absolute; left:50%; top:0; width:4px; height:100%;
+  background:#7b2cbf; transform:translateX(-50%);
+}
+.timeline-item {
+  width:45%; padding:20px; background:#fff; border-radius:10px;
+  box-shadow:0 6px 16px rgba(0,0,0,0.12); position:relative; margin:30px 0;
+}
+.timeline-item:nth-child(odd) { left:0; }
+.timeline-item:nth-child(even) { left:55%; }
+.timeline-item::before {
+  content:""; position:absolute; top:20px; width:15px; height:15px;
+  background:#7b2cbf; border-radius:50%; box-shadow:0 0 0 4px #e9d8fd;
+}
+.timeline-item:nth-child(odd)::before { right:-32px; }
+.timeline-item:nth-child(even)::before { left:-32px; }
 
-    /* ===== CARDS ===== */
-    .project-card, .internship, .certificate-card {
-      background: #fff; border-radius: 10px; padding: 20px;
-      box-shadow: 0 6px 14px rgba(0,0,0,0.1);
-      text-align: left; margin: 20px auto; max-width: 600px;
-    }
-    .project-card a, .certificate-card a {
-      display: inline-block; margin-top: 8px; padding: 8px 14px;
-      background: #7b2cbf; color: #fff; border-radius: 6px;
-      text-decoration: none; font-size: 0.85rem; transition: 0.3s;
-    }
-    .project-card a:hover, .certificate-card a:hover { background: #5a189a; }
+/* ===== CARDS ===== */
+.card {
+  background:#fff; border-radius:10px; padding:20px; margin:15px auto;
+  max-width:600px; box-shadow:0 6px 14px rgba(0,0,0,0.1); text-align:left;
+}
+.card a {
+  display:inline-block; margin-top:8px; padding:7px 12px;
+  background:#7b2cbf; color:#fff; border-radius:6px; text-decoration:none;
+  font-size:.85rem; transition:.3s;
+}
+.card a:hover { background:#5a189a; }
 
-    /* ===== CONTACT ===== */
-    .contact-container {
-      max-width: 500px; margin: auto; background: #fff;
-      padding: 30px; border-radius: 15px;
-      box-shadow: 0 6px 16px rgba(0,0,0,0.12);
-    }
-    .contact-container input, .contact-container textarea {
-      width: 100%; padding: 12px; margin-bottom: 12px;
-      border: 1px solid #ddd; border-radius: 8px;
-    }
-    .contact-container button {
-      width: 100%; background: linear-gradient(90deg,#7b2cbf,#9d4edd);
-      border-radius: 25px; color: #fff; padding: 12px;
-      font-size: 1rem; cursor: pointer; transition: 0.3s;
-    }
+/* ===== CONTACT ===== */
+.contact-container {
+  max-width:500px; margin:auto; background:#fff;
+  padding:25px; border-radius:15px; box-shadow:0 6px 16px rgba(0,0,0,0.12);
+}
+.contact-container input, .contact-container textarea {
+  width:100%; padding:12px; margin-bottom:12px; border:1px solid #ddd; border-radius:8px;
+}
+.contact-container button {
+  width:100%; background:linear-gradient(90deg,#7b2cbf,#9d4edd);
+  border-radius:25px; color:#fff; padding:12px; font-size:1rem; cursor:pointer;
+}
+.social-links a { display:inline-block; margin:8px; color:#7b2cbf; text-decoration:none; font-weight:500; }
+.social-links a:hover { color:#5a189a; }
 
-    /* ===== SOCIAL LINKS ===== */
-    .social-links { margin-top: 15px; }
-    .social-links a {
-      display: inline-block; margin: 8px;
-      color: #7b2cbf; font-weight: 500; text-decoration: none;
-      transition: transform 0.3s, color 0.3s;
-    }
-    .social-links a:hover { transform: translateY(-3px) scale(1.1);
-      color: #5a189a; }
+/* ===== FOOTER ===== */
+footer { background:#7b2cbf; color:#fff; text-align:center; padding:20px; }
 
-    /* ===== FOOTER ===== */
-    footer { background: #7b2cbf; color: #fff; text-align: center; padding: 20px; }
+/* ===== ANIMATIONS ===== */
+@keyframes zoomIn { 0%{opacity:0; transform:scale(0.8);} 100%{opacity:1; transform:scale(1);} }
 
-    /* ===== ANIMATIONS ===== */
-    @keyframes zoomIn { 0% {opacity:0; transform:scale(0.8);} 100% {opacity:1; transform:scale(1);} }
-
-    /* ===== RESPONSIVE ===== */
-    @media (max-width: 900px) {
-      .hero { flex-direction: column-reverse; text-align: center; }
-      #education::before { left: 8px; }
-      .timeline-item { width: 100%; left: 0 !important; margin-left: 20px; }
-      .timeline-item::before { left: -28px !important; }
-    }
-  </style>
+/* ===== RESPONSIVE ===== */
+@media(max-width:900px){
+  .hero{flex-direction:column-reverse;text-align:center;}
+  .timeline-item, .timeline-item:nth-child(even), .timeline-item:nth-child(odd) { width:100%; left:0 !important; margin-left:20px; }
+  .timeline-item::before { left:-28px !important; }
+}
+</style>
 </head>
 <body>
 
-  <!-- ===== HEADER ===== -->
-  <header>
-    <div class="logo">My Portfolio</div>
-    <nav>
-      <a href="#about">About</a>
-      <a href="#skills">Skills</a>
-      <a href="#education">Education</a>
-      <a href="#projects">Projects</a>
-      <a href="#internships">Internships</a>
-      <a href="#achievements">Achievements</a>
-      <a href="#contact">Contact</a>
-    </nav>
-  </header>
+<!-- HEADER -->
+<header>
+  <div class="logo">Fowziya Shaik</div>
+  <nav>
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#education">Education</a>
+    <a href="#projects">Projects</a>
+    <a href="#internships">Internships</a>
+    <a href="#achievements">Achievements</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
 
-  <!-- ===== HERO ===== -->
-  <section class="hero" id="home">
-    <div class="hero-text">
-      <h1>Hello, I'm Fowziya</h1>
-      <h2>Frontend Developer</h2>
-      <p>Passionate about crafting clean and interactive web experiences.</p>
-      <div class="hero-buttons">
-        <a href="resume.pdf" class="btn" target="_blank">Download Resume</a>
-        <a href="https://github.com/fowziyashaik" class="btn" target="_blank">GitHub</a>
-        <a href="https://linkedin.com/in/fowziyashaik" class="btn" target="_blank">LinkedIn</a>
-      </div>
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-text">
+    <h1>Hello, I'm Fowziya</h1>
+    <h2>Java & Frontend Developer</h2>
+    <p>Designs robust, scalable applications using Java, Spring, HTML/CSS/JS and modern frameworks.</p>
+    <div class="hero-buttons">
+      <a href="resume.pdf" class="btn" target="_blank">Resume</a>
+      <a href="https://github.com/fowziyashaik" class="btn" target="_blank">GitHub</a>
+      <a href="https://linkedin.com/in/fowziyashaik" class="btn" target="_blank">LinkedIn</a>
     </div>
-    <div class="hero-image">
-      <img src="https://via.placeholder.com/180" alt="Profile Picture">
-    </div>
-  </section>
+  </div>
+  <div class="hero-image">
+    <img src="profilepic.jpg" alt="Profile Picture">
+  </div>
+</section>
 
-  <!-- ===== ABOUT ===== -->
-  <section id="about">
-    <h2>About Me</h2>
-    <div class="about-card">
-      <p>I am a frontend developer with a focus on creating responsive and user-friendly web applications. Skilled in HTML, CSS, JavaScript, and modern frameworks, I aim to deliver engaging digital experiences.</p>
-    </div>
-  </section>
+<!-- ABOUT -->
+<section id="about">
+  <h2>About Me</h2>
+  <div class="about-card">
+    <p>Java Developer & Frontend Developer: Skilled in building secure, scalable applications using Java, Spring, Hibernate, HTML, CSS, JS, and frameworks like React.</p>
+  </div>
+</section>
 
-  <!-- ===== SKILLS ===== -->
-  <section id="skills">
-    <h2>Skills</h2>
-    <div class="skill">
-      <div class="skill-name">HTML</div>
-      <div class="progress-bar"><div class="progress" style="--progress:90%;">90%</div></div>
-    </div>
-    <div class="skill">
-      <div class="skill-name">CSS</div>
-      <div class="progress-bar"><div class="progress" style="--progress:85%;">85%</div></div>
-    </div>
-    <div class="skill">
-      <div class="skill-name">JavaScript</div>
-      <div class="progress-bar"><div class="progress" style="--progress:75%;">75%</div></div>
-    </div>
-  </section>
+<!-- SKILLS -->
+<section id="skills">
+  <h2>Skills</h2>
+  <div class="skill"><div class="skill-name">Java</div><div class="progress-bar"><div class="progress" style="--progress:90%;">90%</div></div></div>
+  <div class="skill"><div class="skill-name">HTML & CSS</div><div class="progress-bar"><div class="progress" style="--progress:85%;">85%</div></div></div>
+  <div class="skill"><div class="skill-name">JavaScript</div><div class="progress-bar"><div class="progress" style="--progress:85%;">85%</div></div></div>
+  <div class="skill"><div class="skill-name">Advanced Java</div><div class="progress-bar"><div class="progress" style="--progress:75%;">75%</div></div></div>
+  <div class="skill"><div class="skill-name">SQL</div><div class="progress-bar"><div class="progress" style="--progress:75%;">75%</div></div></div>
+  <div class="skill"><div class="skill-name">Python</div><div class="progress-bar"><div class="progress" style="--progress:65%;">65%</div></div></div>
+  <div class="skill"><div class="skill-name">Machine Learning</div><div class="progress-bar"><div class="progress" style="--progress:60%;">60%</div></div></div>
+</section>
 
-  <!-- ===== EDUCATION ===== -->
-  <section id="education">
-    <h2>Education</h2>
-    <div class="timeline-item"><h3>Bachelor's in CS</h3><p>XYZ University (2020-2024)</p></div>
-    <div class="timeline-item"><h3>High School</h3><p>ABC School (2018-2020)</p></div>
-  </section>
+<!-- ACTIVE LINK SCRIPT -->
+<script>
+const sections = document.querySelectorAll("section");
+const navLinks = document.querySelectorAll("nav a");
 
-  <!-- ===== PROJECTS ===== -->
-  <section id="projects">
-    <h2>Projects</h2>
-    <div class="project-card">
-      <h3>E-commerce Website</h3>
-      <p>Developed a full-featured frontend for online shopping.</p>
-      <a href="https://fowziyashaik.github.io/ecommerce/" target="_blank">Live Demo</a>
-      <a href="https://github.com/fowziyashaik/ecommerce" target="_blank">Source Code</a>
-    </div>
-  </section>
-
-  <!-- ===== INTERNSHIPS ===== -->
-  <section id="internships">
-    <h2>Internships</h2>
-    <div class="internship">
-      <h3>Web Developer Intern</h3>
-      <p>Worked on UI improvements and responsive design at TechCorp.</p>
-    </div>
-  </section>
-
-  <!-- ===== ACHIEVEMENTS ===== -->
-  <section id="achievements">
-    <h2>Achievements</h2>
-    <div class="certificate-card">
-      <h3>Certified Frontend Developer</h3>
-      <p>Completed professional certification in modern web development.</p>
-      <a href="certificate.pdf" target="_blank">View Certificate</a>
-    </div>
-  </section>
-
-  <!-- ===== CONTACT ===== -->
-  <section id="contact">
-    <h2>Contact Me</h2>
-    <div class="contact-container">
-      <form>
-        <input type="text" placeholder="Your Name" required>
-        <input type="email" placeholder="Your Email" required>
-        <textarea placeholder="Your Message" rows="5" required></textarea>
-        <button type="submit">Send</button>
-      </form>
-      <div class="social-links">
-        <a href="mailto:fowziya@example.com">📧 Email</a>
-        <a href="https://linkedin.com/in/fowziyashaik" target="_blank">💼 LinkedIn</a>
-        <a href="https://github.com/fowziyashaik" target="_blank">💻 GitHub</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== FOOTER ===== -->
-  <footer>
-    <p>© 2025 Fowziya Shaik. All Rights Reserved.</p>
-  </footer>
+window.addEventListener("scroll", () => {
+  let current = "";
+  sections.forEach(section => {
+    const sectionTop = section.offsetTop - 80;
+    if(scrollY >= sectionTop) current = section.getAttribute("id");
+  });
+  navLinks.forEach(link => link.classList.remove("active"));
+  if(current) document.querySelector(`nav a[href="#${current}"]`).classList.add("active");
+});
+</script>
 
 </body>
 </html>
