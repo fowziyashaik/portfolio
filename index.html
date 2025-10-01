@@ -29,7 +29,7 @@ nav a.active::after, nav a:hover::after { transform:scaleX(1); }
 .hero-buttons { display:flex; gap:12px; flex-wrap:wrap; }
 .btn { padding:10px 18px; border-radius:25px; background:#7b2cbf; color:#fff; text-decoration:none; font-size:.9rem; transition:.3s; display:inline-block; }
 .btn:hover { background:#5a189a; transform:translateY(-3px); }
-.hero-image img { width:200px; height:400px; object-fit:cover; border-radius:50%; border:4px solid #7b2cbf; box-shadow:0 10px 20px rgba(0,0,0,0.15); animation:zoomIn 1s ease forwards; }
+.hero-image img { width:200px; height:600px; object-fit:cover; border-radius:30%; border:4px solid #7b2cbf; box-shadow:0 10px 20px rgba(0,0,0,0.15); animation:zoomIn 1s ease forwards; }
 
 /* ===== SECTIONS ===== */
 section { padding:70px 8%; text-align:center; }
@@ -143,27 +143,29 @@ footer { background:#7b2cbf; color:#fff; text-align:center; padding:20px; }
   <div class="skill"><div class="skill-name">Machine Learning</div><div class="progress-bar"><div class="progress" style="--progress:60%;">60%</div></div></div>
 </section>
 
-<!-- EDUCATION -->
+
+<!-- EDUCATION SECTION -->
 <section id="education">
   <h2>Education</h2>
-  <div class="timeline">
-    <div class="timeline-item">
-      <span class="time-badge">Jul 2025 – Present</span>
+  <div class="edu-container">
+    <div class="edu-card">
+      <div class="edu-date">Jul 2025 – Present</div>
       <h3>Shree Venkateshwaras College Of Engineering & Technology</h3>
       <p>B.Tech, Computer Science and Engineering | CGPA: 85.3 | Nellore, AP</p>
     </div>
-    <div class="timeline-item">
-      <span class="time-badge">2020 – 2022</span>
+    <div class="edu-card">
+      <div class="edu-date">2020 – 2022</div>
       <h3>Narayana Junior College</h3>
       <p>Intermediate Education, M.P.C | Grade: 96% | Nellore, AP</p>
     </div>
-    <div class="timeline-item">
-      <span class="time-badge">2020</span>
+    <div class="edu-card">
+      <div class="edu-date">2020</div>
       <h3>Vikas English Medium School</h3>
       <p>High School, Xth Standard | Grade: 93% | Nellore, AP</p>
     </div>
   </div>
 </section>
+
 
 <!-- PROJECTS -->
 <section id="projects">
@@ -262,4 +264,5 @@ window.addEventListener("scroll",()=>{
   sections.forEach(section=>{
     const sectionTop=section.offsetTop-100;
     if(scrollY>=sectionTop) current=
+
 
