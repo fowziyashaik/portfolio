@@ -5,119 +5,64 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Fowziya Shaik - Portfolio</title>
 <style>
-/* ===== GLOBAL RESET ===== */
+/* ===== GLOBAL ===== */
 * { margin:0; padding:0; box-sizing:border-box; }
-body {
-  font-family:'Poppins',sans-serif;
-  background:linear-gradient(135deg,#f3e8ff,#ffffff);
-  color:#333; line-height:1.6;
-  scroll-behavior:smooth;
-}
+body { font-family:'Poppins',sans-serif; background:linear-gradient(135deg,#f3e8ff,#ffffff); color:#333; line-height:1.6; scroll-behavior:smooth; }
 
 /* ===== HEADER ===== */
 header {
-  position:fixed; top:0; width:100%;
-  display:flex; justify-content:space-between; align-items:center;
+  position:fixed; top:0; width:100%; display:flex; justify-content:space-between; align-items:center;
   padding:12px 8%; background:#fff; box-shadow:0 3px 10px rgba(0,0,0,0.1); z-index:1000;
 }
 .logo { font-size:22px; font-weight:600; color:#7b2cbf; }
-nav a {
-  text-decoration:none; color:#333; margin:0 12px; font-weight:500; position:relative; transition:.3s;
-}
-nav a:hover { color:#7b2cbf; }
-nav a.active { color:#7b2cbf; font-weight:600; }
-nav a::after {
-  content:""; position:absolute; left:0; bottom:-3px; width:100%; height:2px;
-  background:#7b2cbf; transform:scaleX(0); transition:.3s;
-}
+nav a { text-decoration:none; color:#333; margin:0 12px; font-weight:500; position:relative; transition:.3s; }
+nav a:hover, nav a.active { color:#7b2cbf; font-weight:600; }
+nav a::after { content:""; position:absolute; left:0; bottom:-3px; width:100%; height:2px; background:#7b2cbf; transform:scaleX(0); transition:.3s; }
 nav a.active::after, nav a:hover::after { transform:scaleX(1); }
 
 /* ===== HERO ===== */
-.hero {
-  display:flex; align-items:center; justify-content:space-between;
-  padding:100px 8% 50px; flex-wrap:wrap;
-}
+.hero { display:flex; align-items:center; justify-content:space-between; padding:100px 8% 50px; flex-wrap:wrap; }
 .hero-text { flex:1; }
 .hero-text h1 { font-size:2.5rem; margin-bottom:10px; color:#222; }
 .hero-text h2 { font-size:1.5rem; margin-bottom:15px; color:#7b2cbf; }
 .hero-text p { color:#555; margin-bottom:20px; max-width:500px; }
 .hero-buttons { display:flex; gap:12px; flex-wrap:wrap; }
-.btn {
-  padding:10px 18px; border-radius:25px; background:#7b2cbf; color:#fff; text-decoration:none;
-  font-size:.9rem; transition:.3s; display:inline-block;
-}
+.btn { padding:10px 18px; border-radius:25px; background:#7b2cbf; color:#fff; text-decoration:none; font-size:.9rem; transition:.3s; display:inline-block; }
 .btn:hover { background:#5a189a; transform:translateY(-3px); }
-.hero-image img {
-  width:160px; height:160px; object-fit:cover; border-radius:50%;
-  border:4px solid #7b2cbf; box-shadow:0 10px 20px rgba(0,0,0,0.15);
-  animation:zoomIn 1s ease forwards;
-}
+.hero-image img { width:160px; height:160px; object-fit:cover; border-radius:50%; border:4px solid #7b2cbf; box-shadow:0 10px 20px rgba(0,0,0,0.15); animation:zoomIn 1s ease forwards; }
 
 /* ===== SECTIONS ===== */
 section { padding:70px 8%; text-align:center; }
 section h2 { font-size:2rem; margin-bottom:30px; color:#222; }
 
 /* ===== ABOUT ===== */
-.about-card {
-  max-width:600px; margin:auto; background:#fff; padding:20px; border-radius:12px;
-  box-shadow:0 6px 16px rgba(0,0,0,0.12); text-align:left;
-}
+.about-card { max-width:600px; margin:auto; background:#fff; padding:20px; border-radius:12px; box-shadow:0 6px 16px rgba(0,0,0,0.12); text-align:left; }
 
 /* ===== SKILLS ===== */
 .skill { text-align:left; margin-bottom:15px; }
 .skill-name { margin-bottom:5px; font-weight:600; color:#7b2cbf; }
 .progress-bar { background:#eee; border-radius:20px; overflow:hidden; height:16px; }
-.progress {
-  height:100%; background:linear-gradient(90deg,#7b2cbf,#9d4edd);
-  width:var(--progress,70%); border-radius:20px; color:#fff;
-  font-size:.75rem; display:flex; justify-content:flex-end; padding-right:5px;
-}
+.progress { height:100%; background:linear-gradient(90deg,#7b2cbf,#9d4edd); width:var(--progress,70%); border-radius:20px; color:#fff; font-size:.75rem; display:flex; justify-content:flex-end; padding-right:5px; }
 
 /* ===== TIMELINE ===== */
-.timeline {
-  position:relative; max-width:900px; margin:auto; padding:0 0 30px;
-}
-.timeline::before {
-  content:""; position:absolute; left:50%; top:0; width:4px; height:100%;
-  background:#7b2cbf; transform:translateX(-50%);
-}
-.timeline-item {
-  width:45%; padding:20px; background:#fff; border-radius:10px;
-  box-shadow:0 6px 16px rgba(0,0,0,0.12); position:relative; margin:30px 0;
-}
+.timeline { position:relative; max-width:900px; margin:auto; padding:0 0 30px; }
+.timeline::before { content:""; position:absolute; left:50%; top:0; width:4px; height:100%; background:#7b2cbf; transform:translateX(-50%); }
+.timeline-item { width:45%; padding:20px; background:#fff; border-radius:10px; box-shadow:0 6px 16px rgba(0,0,0,0.12); position:relative; margin:30px 0; text-align:left; }
 .timeline-item:nth-child(odd) { left:0; }
 .timeline-item:nth-child(even) { left:55%; }
-.timeline-item::before {
-  content:""; position:absolute; top:20px; width:15px; height:15px;
-  background:#7b2cbf; border-radius:50%; box-shadow:0 0 0 4px #e9d8fd;
-}
+.timeline-item::before { content:""; position:absolute; top:20px; width:15px; height:15px; background:#7b2cbf; border-radius:50%; box-shadow:0 0 0 4px #e9d8fd; }
 .timeline-item:nth-child(odd)::before { right:-32px; }
 .timeline-item:nth-child(even)::before { left:-32px; }
 
 /* ===== CARDS ===== */
-.card {
-  background:#fff; border-radius:10px; padding:20px; margin:15px auto;
-  max-width:600px; box-shadow:0 6px 14px rgba(0,0,0,0.1); text-align:left;
-}
-.card a {
-  display:inline-block; margin-top:8px; padding:7px 12px;
-  background:#7b2cbf; color:#fff; border-radius:6px; text-decoration:none;
-  font-size:.85rem; transition:.3s;
-}
+.card { background:#fff; border-radius:10px; padding:20px; margin:15px auto; max-width:600px; box-shadow:0 6px 14px rgba(0,0,0,0.1); text-align:left; }
+.card a { display:inline-block; margin-top:8px; padding:7px 12px; background:#7b2cbf; color:#fff; border-radius:6px; text-decoration:none; font-size:.85rem; transition:.3s; }
 .card a:hover { background:#5a189a; }
 
 /* ===== CONTACT ===== */
-.contact-container {
-  max-width:500px; margin:auto; background:#fff;
-  padding:25px; border-radius:15px; box-shadow:0 6px 16px rgba(0,0,0,0.12);
-}
-.contact-container input, .contact-container textarea {
-  width:100%; padding:12px; margin-bottom:12px; border:1px solid #ddd; border-radius:8px;
-}
-.contact-container button {
-  width:100%; background:linear-gradient(90deg,#7b2cbf,#9d4edd);
-  border-radius:25px; color:#fff; padding:12px; font-size:1rem; cursor:pointer;
-}
+.contact-container { max-width:500px; margin:auto; background:#fff; padding:25px; border-radius:15px; box-shadow:0 6px 16px rgba(0,0,0,0.12); }
+.contact-container input, .contact-container textarea { width:100%; padding:12px; margin-bottom:12px; border:1px solid #ddd; border-radius:8px; }
+.contact-container button { width:100%; background:linear-gradient(90deg,#7b2cbf,#9d4edd); border-radius:25px; color:#fff; padding:12px; font-size:1rem; cursor:pointer; }
 .social-links a { display:inline-block; margin:8px; color:#7b2cbf; text-decoration:none; font-weight:500; }
 .social-links a:hover { color:#5a189a; }
 
@@ -154,7 +99,7 @@ footer { background:#7b2cbf; color:#fff; text-align:center; padding:20px; }
 <!-- HERO -->
 <section class="hero">
   <div class="hero-text">
-    <h1>Hello, I'm Fowziya</h1>
+    <h1>Shaik  Fowziya</h1>
     <h2>Java & Frontend Developer</h2>
     <p>Designs robust, scalable applications using Java, Spring, HTML/CSS/JS and modern frameworks.</p>
     <div class="hero-buttons">
@@ -188,11 +133,125 @@ footer { background:#7b2cbf; color:#fff; text-align:center; padding:20px; }
   <div class="skill"><div class="skill-name">Machine Learning</div><div class="progress-bar"><div class="progress" style="--progress:60%;">60%</div></div></div>
 </section>
 
-<!-- ACTIVE LINK SCRIPT -->
+<!-- EDUCATION -->
+<section id="education">
+  <h2>Education</h2>
+  <div class="timeline">
+    <div class="timeline-item">
+      <h3>Shree Venkateshwaras College Of Engineering & Technology</h3>
+      <p>B.Tech, Computer Science and Engineering</p>
+      <p>Jul 2025 – Present | CGPA: 85.3 | Nellore, AP</p>
+    </div>
+    <div class="timeline-item">
+      <h3>Narayana Junior College</h3>
+      <p>Intermediate Education, M.P.C</p>
+      <p>2020 – 2022 | Grade: 96% | Nellore, AP</p>
+    </div>
+    <div class="timeline-item">
+      <h3>Vikas English Medium School</h3>
+      <p>High School, Xth Standard</p>
+      <p>2020 | Grade: 93% | Nellore, AP</p>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <h2>Projects</h2>
+  <div class="card">
+    <h3>Number Guessing Game</h3>
+    <p>Users guess a randomly generated number with feedback for each guess.</p>
+    <a href="https://fowziyashaik.github.io/Game.github.io/" target="_blank">View</a>
+  </div>
+  <div class="card">
+    <h3>SMS Spam Detection</h3>
+    <p>ML model to classify messages as spam or not spam using Python, Scikit-learn, and NLTK.</p>
+    <a href="https://github.com/fowziyashaik/Spam.github.io" target="_blank">View</a>
+  </div>
+  <div class="card">
+    <h3>E-commerce Website</h3>
+    <p>Responsive interface with cart, filtering, and secure checkout using HTML/CSS/JS.</p>
+    <a href="https://fowziyashaik.github.io/ecommerce/" target="_blank">View</a>
+  </div>
+  <div class="card">
+    <h3>Library Management System</h3>
+    <p>Menu-driven Java application to manage books, members, issuing, and returns.</p>
+    <a href="https://github.com/fowziyashaik/librarymanagementsystem" target="_blank">View</a>
+  </div>
+</section>
+
+<!-- INTERNSHIPS -->
+<section id="internships">
+  <h2>Internships</h2>
+  <div class="timeline">
+    <div class="timeline-item">
+      <h3>Data Science with Python - Quizaro</h3>
+      <p>Sep–Nov 2023 | Remote</p>
+      <p>Leveraged Python libraries to analyze data and build models.</p>
+      <a href="pintern1.pdf" target="_blank">Certificate</a>
+    </div>
+    <div class="timeline-item">
+      <h3>Java Developer Intern - Octanet</h3>
+      <p>Jul–Sep 2024 | Remote</p>
+      <p>Developed software solutions using Java.</p>
+      <a href="javaintern.pdf" target="_blank">Certificate</a>
+    </div>
+    <div class="timeline-item">
+      <h3>AI Intern - Techsaksham/edunet</h3>
+      <p>Dec 2024–Feb 2025 | Remote</p>
+      <p>Created ML model to predict spam emails using scikit-learn.</p>
+      <a href="edu.jpg" target="_blank">Certificate</a>
+    </div>
+  </div>
+</section>
+
+<!-- ACHIEVEMENTS -->
+<section id="achievements">
+  <h2>Achievements</h2>
+  <div class="card">
+    <h3>Poster & Paper Presentations</h3>
+    <p>Knowledge sharing and networking in professional events.</p>
+    <a href="ppt.pdf" target="_blank">View</a>
+  </div>
+  <div class="card">
+    <h3>Elocution & Debugging Competitions</h3>
+    <p>Enhanced communication and problem-solving skills.</p>
+    <a href="elo.pdf" target="_blank">View</a>
+  </div>
+  <div class="card">
+    <h3>Workshops Participation</h3>
+    <p>Professional development sessions on tech and coding.</p>
+    <a href="work.pdf" target="_blank">View</a>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <h2>Contact Me</h2>
+  <div class="contact-container">
+    <form>
+      <input type="text" placeholder="Your Name" required>
+      <input type="email" placeholder="Your Email" required>
+      <textarea placeholder="Your Message" rows="5" required></textarea>
+      <button type="submit">Send</button>
+    </form>
+    <div class="social-links">
+      <a href="mailto:fowziyashaik7@gmail.com">📧 Email</a>
+      <a href="https://linkedin.com/in/fowziyashaik" target="_blank">💼 LinkedIn</a>
+      <a href="https://github.com/fowziyashaik" target="_blank">💻 GitHub</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  © 2025 Fowziya Shaik. All rights reserved.
+</footer>
+
+<!-- ACTIVE NAV SCRIPT -->
 <script>
 const sections = document.querySelectorAll("section");
 const navLinks = document.querySelectorAll("nav a");
-
 window.addEventListener("scroll", () => {
   let current = "";
   sections.forEach(section => {
