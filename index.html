@@ -44,15 +44,19 @@ nav a.active::after, nav a:hover::after { transform:scaleX(1); }
 .btn:hover { background:#5a189a; transform:translateY(-3px); }
 /* ===== HERO IMAGE ===== */
 .hero-image img { 
-  width: 400px;       /* width of the image */
-  height: 550px;      /* height of the image */
-  object-fit: cover;  /* maintain aspect ratio and cover area */
-  border-radius: 0;   /* square corners */
+  width: 100%;          /* image fills container width */
+  max-width: 400px;     /* max width on large screens */
+  height: auto;         /* automatic height to keep aspect ratio */
+  object-fit: cover;    /* maintain aspect ratio and cover container */
+  border-radius: 0;     /* square corners */
   display: block;
-  margin: 20px auto;  /* center horizontally */
+  margin: 20px auto;    /* center horizontally */
   box-shadow: 0 0 10px rgba(123,44,191,0.5); /* violet shadow */
   animation: zoomIn 1s ease forwards; 
 }
+
+
+
 
 
 
@@ -114,11 +118,18 @@ footer { background:#7b2cbf; color:#fff; text-align:center; padding:20px; }
   .timeline-item, .timeline-item:nth-child(even), .timeline-item:nth-child(odd) { width:100%; left:0 !important; margin-left:20px; }
   .timeline-item::before { left:-28px !important; right:auto !important; }
   .timeline-item .time-badge { right:10px; }
-  .hero-image img{width:400px;height:600px;}
+ .hero-image img {
+    max-width: 350px;   /* adjust max width for tablets */
+  }
 }
+ 
+
 @media(max-width:600px){
   nav a{margin:0 8px; font-size:0.85rem;}
-  .hero-image img{width:300px;height:500px;}
+  .hero-image img {
+    max-width: 280px;   /* adjust max width for mobiles */
+  }
+
   .card{max-width:100%;}
   .about-card{padding:20px;}
 }
@@ -288,6 +299,7 @@ footer { background:#7b2cbf; color:#fff; text-align:center; padding:20px; }
 </footer>
 
 <!-- ACTIVE NAV SCRIPT -->
+
 
 
 
